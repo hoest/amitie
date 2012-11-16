@@ -1,0 +1,107 @@
+body {
+  background-color: #cecece;
+  background-image: url("/images/amitie-huis-bg.jpg");
+  background-repeat: repeat-x;
+  background-attachment: fixed;
+  background-position: left top;
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  background-size:cover;
+  position: relative;
+  transition: background 2s linear;
+}
+
+header {
+  background-color: #fff;
+  width: 100%;
+  border-bottom: 20px solid #cec;
+}
+
+header .container_12 {
+  background-image: url("/images/amitie-logo.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+  height: 191px;
+}
+
+header .container_12 h1 {
+  text-indent: -999999px;
+  direction: ltr;
+}
+
+nav a {
+  font-family: gentium-book-basic, serif;
+  font-style: italic;
+  text-decoration: none;
+  color: #000;
+  font-size: 150%;
+}
+
+nav a:hover {
+  text-decoration: underline;
+  color: #dd0000;
+}
+
+nav ul {
+  float: left;
+  width: 100%;
+  list-style: none;
+  margin: 75px 0 0 0;
+}
+
+nav ul li {
+  float: left;
+  margin: 0 20px 0 0;
+  padding: 2px 5px 2px 0;
+  border-right: 1px solid #fff;
+}
+
+.container {
+  margin-top: 20px;
+}
+
+.grid_element {
+  background-image: url("/images/text-bg.png");
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.grid_element h1 {
+  font-family: lobster, serif;
+  margin: .5ex 0;
+}
+
+.grid_inner {
+  padding: 10px;
+}
+
+.form .row {
+  margin: 20px 0;
+}
+
+.form .row label {
+  display: none;
+}
+
+.form .button input {
+  background-color: #cec;
+  font-size: 100%;
+  border-width: 0;
+  padding: 5px;
+  width: 100%;
+}
+
+.form .row input {
+  font-size: 100%;
+  border-width: 0;
+  padding: 5px;
+  width: 97%;
+}
+
+#grid_login {
+  display: none;
+}
+
+body.login-page {
+  background-image: url("/images/amitie-huis.jpg");
+}
