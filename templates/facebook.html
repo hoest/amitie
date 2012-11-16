@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="grid_element grid_4">
+    <div class="grid_inner">
+      <h1>Zoeken naar leden</h1>
+      <form class="form" action="{% url facebook.views.index %}" method="get">
+        <div class="row">
+          <label for="search">Naam</label>
+          <input id="search" name="q" type="text" placeholder="Voer een naam in..." value="{{ search }}" />
+        </div>
+
+        <div class="button">
+          <input type="submit" value="Zoeken" />
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="grid_element grid_8">
+    <div class="grid_inner">
+    {% if persons %}
+      {% for person in persons %}
+        {% if person.picture %}
+        <img src="/{{ person.picture }}" width="100" align="right" />
+        {% endif %}
+        <h1>{{ person }}</h1>
+        <p>{{ person.street }}<br />{{ person.zipcode }} {{ person.city }}</p>
+        <p>Lid sinds: {{ person.member_since }}<br />Telefoonnummer: {{ person.phonenumber }}</p>
+        <p><a href="{% url facebook.views.person_by_slug person.slug %}">Meer informatie</a></p>
+      {% endfor %}
+    {% else %}
+      <p>Er zijn geen personen gevonden.</p>
+    {% endif %}
+    </div>
+  </div>
+{% endblock %}
