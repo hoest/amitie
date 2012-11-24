@@ -13,6 +13,33 @@
           <input type="submit" value="Zoeken" />
         </div>
       </form>
+      <h1>Jarigen?</h1>
+      <h2>Afgelopen 4 weken</h2>
+      {% if prev_birthday %}
+        <ul>
+          {% for person in prev_birthday %}
+          <li>
+            {{ person.date_of_birth|date:"j-m" }}:
+            <a href="{% url facebook.views.person_by_slug person.slug %}">{{ person }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>Er was niemand jarig afgelopen 4 weken.</p>
+      {% endif %}
+      <h2>Komende 4 weken</h2>
+      {% if next_birthday %}
+        <ul>
+          {% for person in next_birthday %}
+          <li>
+            {{ person.date_of_birth|date:"j-m" }}:
+            <a href="{% url facebook.views.person_by_slug person.slug %}">{{ person }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>Er is niemand jarig komende 4 weken.</p>
+      {% endif %}
     </div>
   </div>
   <div class="grid_element grid_8">

@@ -1,6 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
-  <div class="person">
-    {{ person }}
+  <div class="grid_element grid_4">
+    <div class="grid_inner">
+      <h1>Zoeken naar leden</h1>
+      <a href="{% url facebook.views.index %}">Opnieuw zoeken</a>
+    </div>
+  </div>
+  <div class="grid_element grid_8">
+    <div class="grid_inner">
+      {% if person.picture %}
+      <img src="/{{ person.picture }}" width="100" align="right" />
+      {% endif %}
+      <h1>{{ person }}</h1>
+      <p>{{ person.street }}<br />{{ person.zipcode }} {{ person.city }}</p>
+      <p>
+        Verjaardag: {{ person.date_of_birth|date:"j F" }}
+        {% if person.has_birthday %} (<strong>vandaag jarig</strong>){% endif %}
+      </p>
+      <p>Lid sinds: {{ person.member_since }}</p>
+      <p>
+        Telefoonnummer: {{ person.phonenumber }}
+        {% if person.cellphone %}
+          <br/>Mobiel: {{ person.cellphone }}
+        {% endif %}
+        {% if person.email %}
+          <br/>Emailadres: <a href="mailto:{{ person.email }}">{{ person.email }}</a>
+        {% endif %}
+      </p>
+    </div>
   </div>
 {% endblock %}

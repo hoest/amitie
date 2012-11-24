@@ -6,19 +6,21 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 
 
-@login_required(login_url="/login/")
+@login_required
 def index(request):
   search = request.GET.get("q", "")
 
   context = {
     "search": search,
     "persons": Person.objects.all().order_by("lastname") if search == "" else Person.objects.filter(slug__icontains=search).order_by("lastname"),
+    "prev_birthday": Person.objects.get_birthday(-4),
+    "next_birthday": Person.objects.get_birthday(4)
   }
 
   return render(request, "facebook.html", context)
 
 
-@login_required(login_url="/login/")
+@login_required
 def person_by_slug(request, slug):
   context = {
     "person": Person.objects.get(slug=slug),
