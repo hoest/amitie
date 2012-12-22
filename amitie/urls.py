@@ -9,12 +9,17 @@ urlpatterns = patterns("",
   # url(r"^$", "amitie.views.home", name="home"),
   # url(r"^amitie/", include("amitie.foo.urls")),
 
+  url(r"^$", "pages.views.home", name="home"),
+
   url(r"^login/", "facebook.views.person_login", name="login"),
   url(r"^logout/", "facebook.views.person_logout", name="logout"),
   url(r"^leden/", include("facebook.urls")),
 
+  url(r"^pages/", include("pages.urls")),
+
   url(r"^admin/doc/", include("django.contrib.admindocs.urls")),
   url(r"^admin/", include(admin.site.urls)),
+
   (r"^css/(?P<path>.*)$", "django.views.static.serve", {"document_root": "./static/css"}),
   (r"^js/(?P<path>.*)$", "django.views.static.serve", {"document_root": "./static/js"}),
   (r"^images/(?P<path>.*)$", "django.views.static.serve", {"document_root": "./static/images"}),

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="grid_element grid_4">
+    <div class="grid_inner">
+      <h1>Overzicht</h1>
+      <p>Op deze pagina vind u een overzicht van de meest recente berichten in de categorie '{{ tag }}'.</p>
+    </div>
+  </div>
+  <div class="grid_element grid_8">
+    <div class="grid_inner">
+    {% if pages %}
+      {% for page in pages %}
+        <h1>
+          <a href="{% url pages.views.page_by_slug page.slug %}">{{ page }}</a>
+        </h1>
+        <p class="body">{{ page.body|linebreaks|truncatewords:35 }}</p>
+        <p class="date-created">Creatie datum: {{ page.created }}</p>
+      {% endfor %}
+    {% else %}
+      <p>Er zijn geen pagina's gevonden.</p>
+    {% endif %}
+    </div>
+  </div>
+{% endblock %}

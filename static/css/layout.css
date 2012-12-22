@@ -29,6 +29,16 @@ header .container_12 h1 {
   direction: ltr;
 }
 
+a {
+  text-decoration: none;
+  color: #708672;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #dd0000;
+}
+
 nav a {
   font-family: gentium-book-basic, serif;
   font-style: italic;
@@ -104,4 +114,23 @@ nav ul li {
 
 body.login-page {
   background-image: url("/images/amitie-huis.jpg");
+}
+
+ul.bday {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+  list-style: none;
+}
+
+ul.bday li {
+  margin: 0;
+  padding: 0
+}
+
+.date-created {
+  font-size: 80%;
+  font-style: italic;
+  text-align: right;
 }

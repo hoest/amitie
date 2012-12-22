@@ -119,7 +119,9 @@ INSTALLED_APPS = (
   'django.contrib.staticfiles',
   'django.contrib.admin',
   'django.contrib.admindocs',
+  'south',
   'facebook',
+  'pages',
 )
 
 # A sample logging configuration. The only tangible logging

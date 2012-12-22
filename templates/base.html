@@ -30,7 +30,16 @@
               <a href="{% url facebook.views.index %}">Onze leden</a>
             </li>
             <li>
-              <a href="/">Informatie</a>
+              <a href="{% url pages.views.index_by_type "nieuws" %}">Nieuws</a>
+            </li>
+            <li>
+              <a href="{% url pages.views.index_by_type "agenda" %}">Agenda</a>
+            </li>
+            <li>
+              <a href="{% url pages.views.index_by_type "notulen" %}">Notulen</a>
+            </li>
+            <li>
+              <a href="{% url pages.views.index_by_type "menu" %}">Menu</a>
             </li>
             <li>
               <a href="/logout/">Uitloggen</a>

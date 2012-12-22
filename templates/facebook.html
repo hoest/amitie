@@ -16,7 +16,7 @@
       <h1>Jarigen?</h1>
       <h2>Afgelopen 4 weken</h2>
       {% if prev_birthday %}
-        <ul>
+        <ul class="bday">
           {% for person in prev_birthday %}
           <li>
             {{ person.date_of_birth|date:"j-m" }}:
@@ -29,7 +29,7 @@
       {% endif %}
       <h2>Komende 4 weken</h2>
       {% if next_birthday %}
-        <ul>
+        <ul class="bday">
           {% for person in next_birthday %}
           <li>
             {{ person.date_of_birth|date:"j-m" }}:

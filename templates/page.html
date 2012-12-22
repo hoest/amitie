@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="grid_element grid_2">
+  </div>
+  <div class="grid_element grid_8">
+    <div class="grid_inner">
+      <h1>{{ page.title }}</h1>
+      <div class="body">
+        {{ page.body|linebreaks }}
+      </div>
+    </div>
+  </div>
+  <div class="grid_element grid_2">
+  </div>
+{% endblock %}
