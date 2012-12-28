@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+from facebook.models import Person
 from pages.models import Page
 
 
@@ -35,6 +36,9 @@ def page_by_slug(request, slug):
 def home(request):
   context = {
     "page": Page.objects.get(alias="home"),
+    "prev_birthday": Person.objects.get_birthday(-4),
+    "next_birthday": Person.objects.get_birthday(4),
+    "menu": Page.objects.filter(page_type="menu").order_by("-created")[0],
   }
 
   return render(request, "page.html", context)

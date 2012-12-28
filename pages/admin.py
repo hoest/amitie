@@ -1,8 +1,15 @@
-from pages.models import Page
+from pages.models import Page, Picture
 from django.contrib import admin
+
+
+class PicturesInline(admin.TabularInline):
+  model = Picture
 
 
 class PageAdmin(admin.ModelAdmin):
   prepopulated_fields = {"slug": ("title", )}
+  inlines = [
+    PicturesInline,
+  ]
 
 admin.site.register(Page, PageAdmin)

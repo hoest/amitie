@@ -28,3 +28,15 @@ class Page(models.Model):
     """
     verbose_name = "pagina"
     verbose_name_plural = "pagina's"
+
+
+class Picture(models.Model):
+  page = models.ForeignKey(Page)
+  picture = models.ImageField(upload_to="./pictures/", verbose_name="Afbeelding", help_text="Maximaal 280px breed", blank=True)
+
+  class Meta:
+    """
+    Meta shizzle
+    """
+    verbose_name = "afbeelding"
+    verbose_name_plural = "afbeeldingen"

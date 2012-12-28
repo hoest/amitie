@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-  <div class="grid_element grid_2">
-  </div>
+  {% if not page.picture_set.all and not page.alias == "home" %}
+    <div class="grid_element grid_2">
+    </div>
+  {% endif %}
   <div class="grid_element grid_8">
     <div class="grid_inner">
       <h1>{{ page.title }}</h1>
@@ -10,6 +12,62 @@
       </div>
     </div>
   </div>
-  <div class="grid_element grid_2">
-  </div>
+  {% if menu %}
+    <div class="grid_element grid_4 menukaart">
+      <div class="grid_inner">
+        <h1>{{ menu.title }}</h1>
+        {{ menu.body|linebreaks|truncatewords:15 }}
+        <p>
+          <a href="{% url pages.views.page_by_slug menu.slug %}">Lees het volledige menu</a>
+        </p>
+      </div>
+    </div>
+  {% endif %}
+  {% if prev_birthday or next_birthday %}
+    <div class="grid_element grid_4 birthday">
+      <div class="grid_inner">
+        <h1>Jarigen?</h1>
+        <h2>Afgelopen 4 weken</h2>
+        {% if prev_birthday %}
+          <ul class="bday">
+            {% for person in prev_birthday %}
+            <li>
+              {{ person.date_of_birth|date:"j-m" }}:
+              <a href="{% url facebook.views.person_by_slug person.slug %}">{{ person }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p>Er was niemand jarig afgelopen 4 weken.</p>
+        {% endif %}
+        <h2>Komende 4 weken</h2>
+        {% if next_birthday %}
+          <ul class="bday">
+            {% for person in next_birthday %}
+            <li>
+              {{ person.date_of_birth|date:"j-m" }}:
+              <a href="{% url facebook.views.person_by_slug person.slug %}">{{ person }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p>Er is niemand jarig komende 4 weken.</p>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+  {% if page.picture_set.all %}
+    <div class="grid_element grid_4">
+      <div class="grid_inner">
+        {% for picture in page.picture_set.all %}
+        <p>
+          <img src="/{{ picture.picture }}" width="280" />
+        </p>
+        {% endfor %}
+      </div>
+    </div>
+  {% elif not page.alias == "home" %}
+    <div class="grid_element grid_2">
+    </div>
+  {% endif %}
 {% endblock %}
