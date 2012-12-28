@@ -134,3 +134,23 @@ ul.bday li {
   font-style: italic;
   text-align: right;
 }
+
+.menukaart {
+  background-image: url("/images/menukaart.png");
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: -30px;
+  right: -20px;
+}
+
+.jarig {
+  background-image: url("/images/jarig.png");
+  background-repeat: no-repeat;
+  width: 107px;
+  height: 112px;
+  position: absolute;
+  top: -30px;
+  right: -20px;
+}

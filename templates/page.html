@@ -13,7 +13,8 @@
     </div>
   </div>
   {% if menu %}
-    <div class="grid_element grid_4 menukaart">
+    <div class="grid_element grid_4">
+      <div class="menukaart"></div>
       <div class="grid_inner">
         <h1>{{ menu.title }}</h1>
         {{ menu.body|linebreaks|truncatewords:15 }}
@@ -24,7 +25,8 @@
     </div>
   {% endif %}
   {% if prev_birthday or next_birthday %}
-    <div class="grid_element grid_4 birthday">
+    <div class="grid_element grid_4">
+      <div class="jarig"></div>
       <div class="grid_inner">
         <h1>Jarigen?</h1>
         <h2>Afgelopen 4 weken</h2>
