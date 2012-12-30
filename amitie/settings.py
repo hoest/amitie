@@ -1,6 +1,13 @@
+import os
+import django
+
+# calculated paths for django and the site
+# used as starting points for various other paths
+DJANGO_ROOT = os.path.dirname(os.path.realpath(django.__file__))
+SITE_ROOT = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..')
+
 # Django settings for amitie project.
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
+DEBUG = False
 
 ADMINS = (
   ('Jelle de Jong', 'jelle@hoest.nl'),
@@ -46,7 +53,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = os.path.join(SITE_ROOT, 'media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -57,7 +64,7 @@ MEDIA_URL = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT = os.path.join(SITE_ROOT, 'static')
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -104,7 +111,7 @@ TEMPLATE_DIRS = (
   # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
   # Always use forward slashes, even on Windows.
   # Don't forget to use absolute paths, not relative paths.
-  "/Users/jelle/Development/amitie/templates"
+  os.path.join(SITE_ROOT, 'templates')
 )
 
 # provide our get_profile()

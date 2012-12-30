@@ -4,6 +4,10 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
+import os
+
+SITE_ROOT = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..')
+
 urlpatterns = patterns("",
   # Examples:
   # url(r"^$", "amitie.views.home", name="home"),
@@ -21,8 +25,8 @@ urlpatterns = patterns("",
   url(r"^admin/doc/", include("django.contrib.admindocs.urls")),
   url(r"^admin/", include(admin.site.urls)),
 
-  (r"^css/(?P<path>.*)$", "django.views.static.serve", {"document_root": "./static/css"}),
-  (r"^js/(?P<path>.*)$", "django.views.static.serve", {"document_root": "./static/js"}),
-  (r"^images/(?P<path>.*)$", "django.views.static.serve", {"document_root": "./static/images"}),
-  (r"^pictures/(?P<path>.*)$", "django.views.static.serve", {"document_root": "./pictures"}),
+  (r"^css/(?P<path>.*)$", "django.views.static.serve", {"document_root": os.path.join(SITE_ROOT, "static/css")}),
+  (r"^js/(?P<path>.*)$", "django.views.static.serve", {"document_root": os.path.join(SITE_ROOT, "static/js")}),
+  (r"^images/(?P<path>.*)$", "django.views.static.serve", {"document_root": os.path.join(SITE_ROOT, "static/images")}),
+  (r"^pictures/(?P<path>.*)$", "django.views.static.serve", {"document_root": os.path.join(SITE_ROOT, "pictures")}),
 )
