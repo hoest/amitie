@@ -16,5 +16,5 @@ parts
 pictures/
 settings.py
 settings-*.py
-static/admin/
+static/admin
 tmp
