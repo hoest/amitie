@@ -41,10 +41,15 @@
             <li>
               <a href="{% url pages.views.index_by_type "menu" %}">Menu</a>
             </li>
+            {% endblock %}
+          </ul>
+          <ul class="small-nav">
             <li>
               <a href="/logout/">Uitloggen</a>
             </li>
-            {% endblock %}
+            <li>
+              <a href="/accounts/password_change/">Wijzig wachtwoord</a>
+            </li>
           </ul>
         </nav>
       </div>

@@ -13,7 +13,7 @@ PAGE_TYPE = (
 
 class Page(models.Model):
   title = models.CharField(max_length=1024, verbose_name="Titel")
-  page_type = models.CharField(max_length=256, verbose_name="Titel", choices=PAGE_TYPE, default="all")
+  page_type = models.CharField(max_length=256, verbose_name="Type", choices=PAGE_TYPE, default="all")
   alias = models.SlugField(unique=False, blank=True, verbose_name="Technische alias")
   body = models.TextField(verbose_name="Tekst")
   created = models.DateTimeField(auto_now_add=True, verbose_name="Creatie datum")

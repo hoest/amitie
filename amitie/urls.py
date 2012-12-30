@@ -13,6 +13,7 @@ urlpatterns = patterns("",
 
   url(r"^login/", "facebook.views.person_login", name="login"),
   url(r"^logout/", "facebook.views.person_logout", name="logout"),
+  url(r'^accounts/', include('django.contrib.auth.urls')),
   url(r"^leden/", include("facebook.urls")),
 
   url(r"^pages/", include("pages.urls")),
