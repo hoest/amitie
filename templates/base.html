@@ -21,8 +21,8 @@
           Eerste Baarnse Vrouwensoci&#233;teit, Amiti&#233;
         </h1>
         <nav class="grid_6">
+          {% block menu %}
           <ul>
-            {% block menu %}
             <li>
               <a href="/">Home</a>
             </li>
@@ -41,7 +41,6 @@
             <li>
               <a href="{% url pages.views.index_by_type "menu" %}">Menu</a>
             </li>
-            {% endblock %}
           </ul>
           <ul class="small-nav">
             <li>
@@ -51,6 +50,7 @@
               <a href="/accounts/password_change/">Wijzig wachtwoord</a>
             </li>
           </ul>
+          {% endblock %}
         </nav>
       </div>
     </header>

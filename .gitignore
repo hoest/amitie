@@ -14,4 +14,4 @@ media/uploads
 tmp
 .DS_Store
 pictures/
-
+settings.py
