@@ -9,7 +9,7 @@
   <div class="grid_element grid_8">
     <div class="grid_inner">
       {% if person.picture %}
-      <img src="/{{ person.picture }}" width="100" align="right" />
+      <img src="/media/{{ person.picture }}" width="100" align="right" />
       {% endif %}
       <h1>{{ person }}</h1>
       <p>{{ person.street }}<br />{{ person.zipcode }} {{ person.city }}</p>
