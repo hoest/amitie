@@ -25,6 +25,10 @@ urlpatterns = patterns("",
   url(r"^admin/doc/", include("django.contrib.admindocs.urls")),
   url(r"^admin/", include(admin.site.urls)),
 
+  (r"^static/admin/css/(?P<path>.*)$", "django.views.static.serve", {"document_root": os.path.join(SITE_ROOT, "static/admin/css")}),
+  (r"^static/admin/img/(?P<path>.*)$", "django.views.static.serve", {"document_root": os.path.join(SITE_ROOT, "static/admin/img")}),
+  (r"^static/admin/js/(?P<path>.*)$", "django.views.static.serve", {"document_root": os.path.join(SITE_ROOT, "static/admin/js")}),
+
   (r"^css/(?P<path>.*)$", "django.views.static.serve", {"document_root": os.path.join(SITE_ROOT, "static/css")}),
   (r"^js/(?P<path>.*)$", "django.views.static.serve", {"document_root": os.path.join(SITE_ROOT, "static/js")}),
   (r"^images/(?P<path>.*)$", "django.views.static.serve", {"document_root": os.path.join(SITE_ROOT, "static/images")}),
