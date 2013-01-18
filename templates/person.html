@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load markup %}
 {% block content %}
   <div class="grid_element grid_4">
     <div class="grid_inner">
@@ -27,6 +28,10 @@
           <br/>Emailadres: <a href="mailto:{{ person.email }}">{{ person.email }}</a>
         {% endif %}
       </p>
+      {% if person.expertise %}
+        <p><strong>Expertise:</strong></p>
+        {{ person.expertise|markdown:"safe" }}
+      {% endif %}
     </div>
   </div>
 {% endblock %}

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load markup %}
 {% block content %}
   {% if not page.picture_set.all and not page.alias == "home" %}
     <div class="grid_element grid_2">
@@ -8,7 +9,7 @@
     <div class="grid_inner">
       <h1>{{ page.title }}</h1>
       <div class="body">
-        {{ page.body|linebreaks }}
+        {{ page.body|markdown:"safe" }}
       </div>
     </div>
   </div>
@@ -17,7 +18,7 @@
       <div class="menukaart"></div>
       <div class="grid_inner">
         <h1>{{ menu.title }}</h1>
-        {{ menu.body|linebreaks|truncatewords:15 }}
+        {{ menu.body|markdown:"safe"|truncatewords:15 }}
         <p>
           <a href="{% url pages.views.page_by_slug menu.slug %}">Lees het volledige menu</a>
         </p>

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load markup %}
 {% block content %}
   <div class="grid_element grid_4">
     <div class="grid_inner">
@@ -13,7 +14,7 @@
         <h1>
           <a href="{% url pages.views.page_by_slug page.slug %}">{{ page }}</a>
         </h1>
-        <p class="body">{{ page.body|linebreaks|truncatewords:35 }}</p>
+        <p class="body">{{ page.body|markdown:"safe"|truncatewords:35 }}</p>
         <p class="date-created">Creatie datum: {{ page.created }}</p>
       {% endfor %}
     {% else %}

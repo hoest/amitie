@@ -51,6 +51,7 @@ class Person(models.Model):
   email = models.CharField(max_length=256, verbose_name="Emailadres", blank=True)
   pub_date = models.DateTimeField(auto_now_add=True, verbose_name="Publicatie datum")
   slug = models.SlugField(unique=True)
+  expertise = models.TextField(verbose_name="Expertise", blank=True)
 
   def has_birthday(self, current_day):
     return current_day.day == self.date_of_birth.day and current_day.month == self.date_of_birth.month
