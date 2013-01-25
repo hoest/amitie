@@ -57,6 +57,20 @@
     {% else %}
       <p>Er zijn geen personen gevonden.</p>
     {% endif %}
+
+      <div class="pagination">
+        <span class="step-links">
+        {% if persons.has_previous %}
+          <a href="?page={{ persons.previous_page_number }}">Vorige</a>
+        {% endif %}
+
+        <span class="current">Pagina {{ persons.number }} van {{ persons.paginator.num_pages }}.</span>
+
+        {% if persons.has_next %}
+          <a href="?page={{ persons.next_page_number }}">Volgende</a>
+        {% endif %}
+        </span>
+      </div>
     </div>
   </div>
 {% endblock %}

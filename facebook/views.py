@@ -4,15 +4,28 @@ from facebook.models import Person
 from facebook.forms import LoginForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 @login_required
 def index(request):
   search = request.GET.get("q", "")
+  persons = Person.objects.all().order_by("lastname") if search == "" else Person.objects.filter(slug__icontains=search).order_by("lastname")
+  paginator = Paginator(persons, 10)
+  page = request.GET.get('page')
+
+  try:
+    persons = paginator.page(page)
+  except PageNotAnInteger:
+    # If page is not an integer, deliver first page.
+    persons = paginator.page(1)
+  except EmptyPage:
+    # If page is out of range (e.g. 9999), deliver last page of results.
+    persons = paginator.page(paginator.num_pages)
 
   context = {
     "search": search,
-    "persons": Person.objects.all().order_by("lastname") if search == "" else Person.objects.filter(slug__icontains=search).order_by("lastname"),
+    "persons": persons,
     "prev_birthday": Person.objects.get_birthday(-4),
     "next_birthday": Person.objects.get_birthday(4)
   }
