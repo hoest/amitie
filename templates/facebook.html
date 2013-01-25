@@ -44,6 +44,20 @@
   </div>
   <div class="grid_element grid_8">
     <div class="grid_inner">
+      <div class="pagination">
+        <span class="step-links">
+        {% if persons.has_previous %}
+          <a href="?page={{ persons.previous_page_number }}">Vorige</a>
+        {% endif %}
+
+        <span class="current">Pagina {{ persons.number }} van {{ persons.paginator.num_pages }}</span>
+
+        {% if persons.has_next %}
+          <a href="?page={{ persons.next_page_number }}">Volgende</a>
+        {% endif %}
+        </span>
+      </div>
+
     {% if persons %}
       {% for person in persons %}
         {% if person.picture %}
@@ -64,7 +78,7 @@
           <a href="?page={{ persons.previous_page_number }}">Vorige</a>
         {% endif %}
 
-        <span class="current">Pagina {{ persons.number }} van {{ persons.paginator.num_pages }}.</span>
+        <span class="current">Pagina {{ persons.number }} van {{ persons.paginator.num_pages }}</span>
 
         {% if persons.has_next %}
           <a href="?page={{ persons.next_page_number }}">Volgende</a>
