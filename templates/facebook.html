@@ -51,8 +51,8 @@
         <img src="/media/{{ person.picture }}" width="100" align="right" />
         {% endif %}
         <h1>{{ person }}</h1>
-        <p>{{ person.street }}<br />{{ person.zipcode }} {{ person.city }}</p>
-        <p>Lid sinds: {{ person.member_since }}<br />Telefoonnummer: {{ person.phonenumber }}</p>
+        <p>{{ person.street }}<br />{{ person.zipcode }} {{ person.city }}
+        <br />Telefoonnummer: {{ person.phonenumber }}</p>
         <p><a href="{% url facebook.views.person_by_slug person.slug %}">Meer informatie</a></p>
       {% endfor %}
     {% else %}
