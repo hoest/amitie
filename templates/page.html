@@ -35,7 +35,7 @@
           <ul class="bday">
             {% for person in next_birthday %}
             <li>
-              {{ person.date_of_birth|date:"j-m" }}:
+              {{ person.date_of_birth|date:"j b" }}:
               <a href="{% url facebook.views.person_by_slug person.slug %}">{{ person }}</a>
             </li>
             {% endfor %}
