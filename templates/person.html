@@ -15,7 +15,7 @@
       <h1>{{ person }}</h1>
       <p>{{ person.street }}<br />{{ person.zipcode }} {{ person.city }}</p>
       <p>
-        Verjaardag: {{ person.date_of_birth|date:"j F" }}
+        Geboortedatum: {{ person.date_of_birth|date:"j F Y" }}
         {% if person.has_birthday %} (<strong>vandaag jarig</strong>){% endif %}
       </p>
       <p>Lid sinds: {{ person.member_since }}</p>

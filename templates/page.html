@@ -25,25 +25,12 @@
       </div>
     </div>
   {% endif %}
-  {% if prev_birthday or next_birthday %}
+  {% if next_birthday %}
     <div class="grid_element grid_4">
       <div class="jarig"></div>
       <div class="grid_inner">
         <h1>Jarigen?</h1>
-        <h2>Afgelopen 4 weken</h2>
-        {% if prev_birthday %}
-          <ul class="bday">
-            {% for person in prev_birthday %}
-            <li>
-              {{ person.date_of_birth|date:"j-m" }}:
-              <a href="{% url facebook.views.person_by_slug person.slug %}">{{ person }}</a>
-            </li>
-            {% endfor %}
-          </ul>
-        {% else %}
-          <p>Er was niemand jarig afgelopen 4 weken.</p>
-        {% endif %}
-        <h2>Komende 4 weken</h2>
+        <h2>Komende maand</h2>
         {% if next_birthday %}
           <ul class="bday">
             {% for person in next_birthday %}

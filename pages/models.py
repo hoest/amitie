@@ -2,9 +2,9 @@ from django.db import models
 
 
 PAGE_TYPE = (
-  ("nieuws", "Nieuws"),
+  ("bestuur-en-commissies", "Bestuur en commissies"),
+  ("mededelingen", "Mededelingen"),
   ("agenda", "Agenda"),
-  ("notule", "Notule"),
   ("menu", "Menu"),
   ("special", "Speciaal type (voor homepage e.d.)"),
   ("all", "Overig"),

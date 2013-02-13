@@ -8,6 +8,7 @@ class PicturesInline(admin.TabularInline):
 
 class PageAdmin(admin.ModelAdmin):
   prepopulated_fields = {"slug": ("title", )}
+  ordering = ("-created", "title")
   inlines = [
     PicturesInline,
   ]

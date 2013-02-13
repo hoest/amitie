@@ -26,7 +26,6 @@ def index(request):
   context = {
     "search": search,
     "persons": persons,
-    "prev_birthday": Person.objects.get_birthday(-4),
     "next_birthday": Person.objects.get_birthday(4)
   }
 
