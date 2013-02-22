@@ -34,13 +34,13 @@
       <div class="pagination">
         <span class="step-links">
         {% if persons.has_previous %}
-          <a href="?page={{ persons.previous_page_number }}">Vorige</a>
+          <a href="?page={{ persons.previous_page_number }}">&#171; Vorige</a>
         {% endif %}
 
         <span class="current">Pagina {{ persons.number }} van {{ persons.paginator.num_pages }}</span>
 
         {% if persons.has_next %}
-          <a href="?page={{ persons.next_page_number }}">Volgende</a>
+          <a href="?page={{ persons.next_page_number }}">Volgende &#187;</a>
         {% endif %}
         </span>
       </div>
@@ -62,13 +62,13 @@
       <div class="pagination">
         <span class="step-links">
         {% if persons.has_previous %}
-          <a href="?page={{ persons.previous_page_number }}">Vorige</a>
+          <a href="?page={{ persons.previous_page_number }}">&#171; Vorige</a>
         {% endif %}
 
         <span class="current">Pagina {{ persons.number }} van {{ persons.paginator.num_pages }}</span>
 
         {% if persons.has_next %}
-          <a href="?page={{ persons.next_page_number }}">Volgende</a>
+          <a href="?page={{ persons.next_page_number }}">Volgende &#187;</a>
         {% endif %}
         </span>
       </div>
