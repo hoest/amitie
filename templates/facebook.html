@@ -1,4 +1,7 @@
 {% extends "base.html" %}
+
+{% load thumbnail %}
+
 {% block content %}
   <div class="grid_element grid_4">
     <div class="grid_inner">
@@ -48,7 +51,9 @@
     {% if persons %}
       {% for person in persons %}
         {% if person.picture %}
-        <img src="/media/{{ person.picture }}" width="100" align="right" />
+          {% thumbnail person.picture "100" crop="center" as im %}
+            <img src="{{ im.url }}" align="right" width="{{ im.width }}" height="{{ im.height }}">
+          {% endthumbnail %}
         {% endif %}
         <h1>{{ person }}</h1>
         <p>{{ person.street }}<br />{{ person.zipcode }} {{ person.city }}

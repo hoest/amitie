@@ -33,4 +33,5 @@ urlpatterns = patterns("",
   (r"^js/(?P<path>.*)$", "django.views.static.serve", {"document_root": os.path.join(SITE_ROOT, "static/js")}),
   (r"^images/(?P<path>.*)$", "django.views.static.serve", {"document_root": os.path.join(SITE_ROOT, "static/images")}),
   (r"^media/pictures/(?P<path>.*)$", "django.views.static.serve", {"document_root": os.path.join(SITE_ROOT, "media/pictures")}),
+  (r"^media/cache/(?P<path>.*)$", "django.views.static.serve", {"document_root": os.path.join(SITE_ROOT, "media/cache")}),
 )

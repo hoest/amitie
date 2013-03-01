@@ -8,6 +8,7 @@ SITE_ROOT = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..')
 
 # Django settings for amitie project.
 DEBUG = False
+THUMBNAIL_DEBUG = DEBUG
 
 ADMINS = (
   ('Jelle de Jong', 'jelle@hoest.nl'),
@@ -117,6 +118,13 @@ TEMPLATE_DIRS = (
 # provide our get_profile()
 AUTH_PROFILE_MODULE = 'facebook.Person'
 
+CACHES = {
+  'default': {
+    'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+    'LOCATION': os.path.join(MEDIA_ROOT, 'cache'),
+  }
+}
+
 INSTALLED_APPS = (
   'django.contrib.auth',
   'django.contrib.contenttypes',
@@ -126,6 +134,8 @@ INSTALLED_APPS = (
   'django.contrib.staticfiles',
   'django.contrib.admin',
   'django.contrib.admindocs',
+  'django.contrib.markup',
+  'sorl.thumbnail',
   'south',
   'facebook',
   'pages',

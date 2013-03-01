@@ -1,5 +1,8 @@
 {% extends "base.html" %}
+
 {% load markup %}
+{% load thumbnail %}
+
 {% block content %}
   {% if not page.picture_set.all and not page.alias == "home" %}
     <div class="grid_element grid_2">
@@ -51,7 +54,9 @@
       <div class="grid_inner">
         {% for picture in page.picture_set.all %}
         <p>
-          <img src="/media/{{ picture.picture }}" width="280" />
+          {% thumbnail picture.picture "280x280" crop="center" as im %}
+            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+          {% endthumbnail %}
         </p>
         {% endfor %}
       </div>

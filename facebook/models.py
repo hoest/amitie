@@ -44,7 +44,7 @@ class Person(models.Model):
   zipcode = models.CharField(max_length=6, verbose_name="Postcode")
   city = models.CharField(max_length=256, verbose_name="Plaats")
   date_of_birth = models.DateField(verbose_name="Geboortedatum")
-  picture = models.ImageField(upload_to="./pictures/", verbose_name="Foto", help_text="Maximaal 250px breed", blank=True)
+  picture = models.ImageField(upload_to="pictures/", verbose_name="Foto", help_text="Maximaal 250px breed", blank=True)
   member_since = models.DateField(verbose_name="Lid sinds")
   phonenumber = models.CharField(max_length=12, verbose_name="Telefoonnummer")
   cellphone = models.CharField(max_length=12, verbose_name="Mobiel", blank=True)

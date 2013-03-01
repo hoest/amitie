@@ -32,7 +32,7 @@ class Page(models.Model):
 
 class Picture(models.Model):
   page = models.ForeignKey(Page)
-  picture = models.ImageField(upload_to="./pictures/", verbose_name="Afbeelding", help_text="Maximaal 280px breed", blank=True)
+  picture = models.ImageField(upload_to="pictures/", verbose_name="Afbeelding", help_text="Maximaal 280px breed", blank=True)
 
   class Meta:
     """
