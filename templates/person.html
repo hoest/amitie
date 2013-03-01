@@ -13,9 +13,11 @@
   <div class="grid_element grid_8">
     <div class="grid_inner">
       {% if person.picture %}
-        {% thumbnail person.picture "200" crop="center" as im %}
-          <img src="{{ im.url }}" align="right" width="{{ im.width }}" height="{{ im.height }}">
-        {% endthumbnail %}
+        <a class="fancybox" href="{{ person.picture.url }}">
+          {% thumbnail person.picture "200" crop="center" as im %}
+            <img src="{{ im.url }}" align="right" width="{{ im.width }}" height="{{ im.height }}">
+          {% endthumbnail %}
+        </a>
       {% endif %}
       <h1>{{ person }}</h1>
       <p>{{ person.street }}<br />{{ person.zipcode }} {{ person.city }}</p>

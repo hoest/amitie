@@ -12,4 +12,6 @@ $(function() {
 
     $("#grid_login").toggle();
   });
+
+  $(".fancybox").fancybox();
 });

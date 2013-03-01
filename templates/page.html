@@ -54,9 +54,11 @@
       <div class="grid_inner">
         {% for picture in page.picture_set.all %}
         <p>
-          {% thumbnail picture.picture "280x280" crop="center" as im %}
-            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
-          {% endthumbnail %}
+          <a class="fancybox" rel="gallery1" href="{{ picture.picture.url }}">
+            {% thumbnail picture.picture "280x280" crop="center" as im %}
+              <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+            {% endthumbnail %}
+          </a>
         </p>
         {% endfor %}
       </div>

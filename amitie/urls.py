@@ -31,6 +31,7 @@ urlpatterns = patterns("",
 
   (r"^css/(?P<path>.*)$", "django.views.static.serve", {"document_root": os.path.join(SITE_ROOT, "static/css")}),
   (r"^js/(?P<path>.*)$", "django.views.static.serve", {"document_root": os.path.join(SITE_ROOT, "static/js")}),
+  (r"^fancybox/(?P<path>.*)$", "django.views.static.serve", {"document_root": os.path.join(SITE_ROOT, "static/fancybox")}),
   (r"^images/(?P<path>.*)$", "django.views.static.serve", {"document_root": os.path.join(SITE_ROOT, "static/images")}),
   (r"^media/pictures/(?P<path>.*)$", "django.views.static.serve", {"document_root": os.path.join(SITE_ROOT, "media/pictures")}),
   (r"^media/cache/(?P<path>.*)$", "django.views.static.serve", {"document_root": os.path.join(SITE_ROOT, "media/cache")}),
