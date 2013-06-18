@@ -5,6 +5,7 @@ PAGE_TYPE = (
   ("bestuur-en-commissies", "Bestuur en commissies"),
   ("mededelingen", "Mededelingen"),
   ("agenda", "Agenda"),
+  ("nieuws", "Nieuws"),
   ("menu", "Menu"),
   ("special", "Speciaal type (voor homepage e.d.)"),
   ("all", "Overig"),

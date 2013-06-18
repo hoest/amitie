@@ -37,7 +37,7 @@ def home(request):
   context = {
     "page": Page.objects.get(alias="home"),
     "next_birthday": Person.objects.get_birthday(4),
-    "menu": Page.objects.filter(page_type="menu").order_by("-created")[0],
+    "nieuws": Page.objects.filter(page_type="nieuws").order_by("-created")[0],
   }
 
   return render(request, "page.html", context)

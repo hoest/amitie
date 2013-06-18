@@ -16,14 +16,14 @@
       </div>
     </div>
   </div>
-  {% if menu %}
+  {% if nieuws %}
     <div class="grid_element grid_4">
-      <div class="menukaart"></div>
+      <div class="nieuwsblok"></div>
       <div class="grid_inner">
-        <h1>{{ menu.title }}</h1>
-        {{ menu.body|markdown:"safe"|truncatewords:15 }}
+        <h1>{{ nieuws.title }}</h1>
+        {{ nieuws.body|markdown:"safe"|truncatewords:15 }}
         <p>
-          <a href="{% url pages.views.page_by_slug menu.slug %}">Lees het volledige menu</a>
+          <a href="{% url pages.views.page_by_slug nieuws.slug %}">Lees meer</a>
         </p>
       </div>
     </div>
