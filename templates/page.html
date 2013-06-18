@@ -23,7 +23,7 @@
         <h1>{{ nieuws.title }}</h1>
         {{ nieuws.body|markdown:"safe"|truncatewords:15 }}
         <p>
-          <a href="{% url pages.views.page_by_slug nieuws.slug %}">Lees meer</a>
+          <a href="{% url pages.views.page_by_slug nieuws.slug %}">Lees verder</a>
         </p>
       </div>
     </div>
